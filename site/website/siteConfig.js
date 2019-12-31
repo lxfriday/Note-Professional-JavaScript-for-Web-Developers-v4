@@ -23,7 +23,7 @@ const users = [
 
 const siteConfig = {
   cname: "js-professional.lxfriday.xyz",
-  title: "Test Site", // Title for your website.
+  title: "JavaScript 高级程序设计第四版", // Title for your website.
   tagline: "A website for testing",
   url: "https://your-docusaurus-test-site.com", // Your website URL
   baseUrl: "/", // Base URL for your project */
@@ -32,18 +32,18 @@ const siteConfig = {
   //   baseUrl: '/test-site/',
 
   // Used for publishing and more
+  editUrl:
+    "https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4/tree/master/site/docs",
   projectName: "",
-  organizationName: "facebook",
+  organizationName: "云影sky",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
 
   // For no header links in the top nav bar -> headerLinks: [],
   headerLinks: [
-    { doc: "doc1", label: "Docs" },
-    { doc: "doc4", label: "API" },
-    { page: "help", label: "Help" },
-    { blog: true, label: "Blog" }
+    { doc: "catalog", label: "翻译" },
+    { blog: true, label: "笔记" }
   ],
 
   // If you have users set above, you add it here:
@@ -75,7 +75,7 @@ const siteConfig = {
   */
 
   // This copyright info is used in /core/Footer.js and blog RSS/Atom feeds.
-  copyright: `Copyright © ${new Date().getFullYear()} Your Name or Your Company Name`,
+  copyright: ``,
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
@@ -95,14 +95,14 @@ const siteConfig = {
   twitterImage: "img/docusaurus.png"
 
   // Show documentation's last contributor's name.
-  // enableUpdateBy: true,
+  enableUpdateBy: true,
 
   // Show documentation's last update time.
-  // enableUpdateTime: true,
+  enableUpdateTime: true,
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  //   repoUrl: 'https://github.com/facebook/test-site',
+    repoUrl: 'https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4',
 };
 
 module.exports = siteConfig;

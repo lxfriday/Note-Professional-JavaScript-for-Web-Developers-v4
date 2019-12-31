@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Docusaurus": ["doc1"],
+    "目录": ["catalog"],
     "First Category": ["doc2"],
     "Second Category": ["doc3"]
   },
