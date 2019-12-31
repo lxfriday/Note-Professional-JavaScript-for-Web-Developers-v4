@@ -9,24 +9,14 @@
 // react-native  https://github.com/facebook/react-native-website/blob/master/website/siteConfig.js
 // site configuration options.
 
-// List of projects/orgs using your project for the users page.
-const users = [
-  {
-    caption: "User1",
-    // You will need to prepend the image path with your baseUrl
-    // if it is not '/', like: '/test-site/img/docusaurus.svg'.
-    image: "/img/docusaurus.svg",
-    infoLink: "https://www.facebook.com",
-    pinned: true
-  }
-];
+const baseUrl = "/";
 
 const siteConfig = {
   cname: "js-professional.lxfriday.xyz",
   title: "JavaScript 高级程序设计第四版", // Title for your website.
   tagline: "A website for testing",
   url: "https://your-docusaurus-test-site.com", // Your website URL
-  baseUrl: "/", // Base URL for your project */
+  baseUrl, // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
@@ -47,7 +37,6 @@ const siteConfig = {
   ],
 
   // If you have users set above, you add it here:
-  users,
 
   /* path to images for header/footer */
   headerIcon: "img/docusaurus.svg",
@@ -56,8 +45,8 @@ const siteConfig = {
 
   /* Colors for website */
   colors: {
-    primaryColor: "#2E8555",
-    secondaryColor: "#205C3B"
+    primaryColor: "#d31145",
+    secondaryColor: "#fdf202"
   },
 
   /* Custom fonts for website */
@@ -79,11 +68,15 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: "default"
+    theme: "atom-one-dark"
   },
 
-  // Add custom scripts here that would be placed in <script> tags.
-  scripts: ["https://buttons.github.io/buttons.js"],
+  scripts: [
+    "https://buttons.github.io/buttons.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",
+    `${baseUrl}js/code-block-buttons.js`
+  ],
+  stylesheets: [`${baseUrl}css/code-block-buttons.css`],
 
   // On page navigation for the current documentation page.
   onPageNav: "separate",
