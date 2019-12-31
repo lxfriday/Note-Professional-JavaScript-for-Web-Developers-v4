@@ -6,6 +6,7 @@
  */
 
 // See https://docusaurus.io/docs/site-config for all the possible
+// react-native  https://github.com/facebook/react-native-website/blob/master/website/siteConfig.js
 // site configuration options.
 
 // List of projects/orgs using your project for the users page.
@@ -25,7 +26,7 @@ const siteConfig = {
   title: "Test Site", // Title for your website.
   tagline: "A website for testing",
   url: "https://your-docusaurus-test-site.com", // Your website URL
-  baseUrl: "/Note-Professional-JavaScript-for-Web-Developers-v4/", // Base URL for your project */
+  baseUrl: "/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
   //   baseUrl: '/test-site/',
