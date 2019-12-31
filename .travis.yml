@@ -1,0 +1,34 @@
+language: node_js
+# nodejs版本
+node_js:
+  - "10"
+
+# S: Build Lifecycle
+install:
+  - cd site/website
+  - yarn install
+
+before_script:
+
+# 无其他依赖项所以执行npm run build 构建就行了
+script:
+  - yarn build
+
+after_script:
+  - cd ./build
+  - git init
+  - git config user.name "lxfriday"
+  - git config user.email "liu3248184446@outlook.com"
+  - git add .
+  - git commit -m "travis Build"
+  - git push --force "https://${GH_TOKEN}@${GH_REF}" gh-pages
+# E: Build LifeCycle
+
+#指定分支，只有指定的分支提交时才会运行脚本
+branches:
+  only:
+    - master
+env:
+  global:
+    # 我将其添加到了travis-ci的环境变量中
+    #- GH_REF: github.com/yimogit/metools.git
