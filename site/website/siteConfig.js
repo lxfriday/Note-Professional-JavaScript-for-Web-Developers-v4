@@ -68,7 +68,7 @@ const siteConfig = {
 
   highlight: {
     // Highlight.js theme to use for syntax highlighting in code blocks.
-    theme: "atom-one-dark"
+    theme: "monokai-sublime"
   },
 
   scripts: [
