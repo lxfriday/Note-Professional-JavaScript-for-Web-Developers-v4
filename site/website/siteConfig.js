@@ -33,7 +33,7 @@ const siteConfig = {
 
   // Used for publishing and more
   editUrl:
-    "https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4/tree/master/site/docs",
+    "https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4/tree/master/site/docs/",
   projectName: "",
   organizationName: "云影sky",
   // For top-level user or org sites, the organization is still the same.
