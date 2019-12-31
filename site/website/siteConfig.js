@@ -92,6 +92,10 @@ const siteConfig = {
 
   // Show documentation's last update time.
   enableUpdateTime: true,
+  scrollToTop: true,
+  scrollToTopOptions: {
+    zIndex: 100
+  },
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
