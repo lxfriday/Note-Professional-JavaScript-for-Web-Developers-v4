@@ -1,5 +1,5 @@
 ---
-title: JavaScript 中创建对象的那些事儿
+title: JavaScript中创建对象的那些事儿
 author: 云影sky
 issuse: https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4/issues/1
 ---
