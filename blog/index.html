@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Blog · JavaScript 高级程序设计第四版</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="A website for testing"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Blog · JavaScript 高级程序设计第四版"/><meta property="og:type" content="website"/><meta property="og:url" content="https://your-docusaurus-test-site.com/"/><meta property="og:description" content="A website for testing"/><meta property="og:image" content="https://your-docusaurus-test-site.com/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://your-docusaurus-test-site.com/img/docusaurus.png"/><link rel="shortcut icon" href="/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><link rel="alternate" type="application/atom+xml" href="https://your-docusaurus-test-site.com/blog/atom.xml" title="JavaScript 高级程序设计第四版 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://your-docusaurus-test-site.com/blog/feed.xml" title="JavaScript 高级程序设计第四版 Blog RSS Feed"/><link rel="stylesheet" href="/css/code-block-buttons.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="blog"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/docusaurus.svg" alt="JavaScript 高级程序设计第四版"/><h2 class="headerTitleWithLogo">JavaScript 高级程序设计第四版</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/catalog" target="_self">翻译</a></li><li class="siteNavGroupActive siteNavItemActive"><a href="/blog/" target="_self">笔记</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Recent Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Recent Posts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/blog/2019/12/31/JavaScript中创建对象的那些事儿">JavaScript中创建对象的那些事儿</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/10/24/new-version-1.0.0">New Version 1.0.0</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/09/26/adding-rss">Adding RSS Support</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/09/25/testing-rss">Adding RSS Support - RSS Truncation Test</a></li><li class="navListItem"><a class="navItem" href="/blog/2017/04/10/blog-post-two">New Blog Post</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="posts"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2019/12/31/JavaScript中创建对象的那些事儿">JavaScript中创建对象的那些事儿</a></h1><p class="post-meta">December 31, 2019</p><div class="authorBlock"><p class="post-authorName"><a target="_blank" rel="noreferrer noopener">云影sky</a></p></div></header><article class="post-content"><div><span><p><a href="https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4/issues/1">discuss</a></p>
+<p><img src="https://qiniu1.lxfriday.xyz/blog/e1f4e75480c9533dc8c6a3e2074ff2c_20191231200037.jpg" alt=""></p>
+<p>本文原载自 <a href="http://js-professional.lxfriday.xyz/blog/2019/12/31/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA">http://js-professional.lxfriday.xyz/blog/2019/12/31/%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA</a>，作为学习笔记总结呈现。</p>
+<h2><a class="anchor" aria-hidden="true" id="创建对象的几种基本方式"></a><a href="#创建对象的几种基本方式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建对象的几种基本方式</h2>
+<ul>
+<li><code>{}</code> 对象字面量</li>
+<li><code>Object()</code> 或者 <code>new Object()</code></li>
+<li><code>new Constructor()</code></li>
+<li><code>Object.create()</code></li>
+<li><code>Object.assign()</code></li>
+</ul>
+<p>关于 <code>new Constructor()</code> <code>Object.create()</code> 和 <code>Object.assign()</code> 创建对象的过程和模拟实现可以参考这篇文章 <a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483946&amp;idx=1&amp;sn=acbf08e208b23ddd813c2f3266f375c0&amp;chksm=fd3c3e82ca4bb79458205dde161449b483317ae45eb214b0225af467bc448f398c4f09cd9999&amp;token=479601613&amp;lang=zh_CN#rd">前端面试必备 | 5000 字长文解释千万不能错过的原型操作方法及其模拟实现（原型篇：下）</a>。</p>
+<h2><a class="anchor" aria-hidden="true" id="工厂模式"></a><a href="#工厂模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>工厂模式</h2>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createPerson</span>(<span class="hljs-params">name, age, job</span>) </span>{
+  <span class="hljs-keyword">const</span> o = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>()
+  o.name = name
+  o.age = age
+  o.job = job
+  o.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+  }
+  <span class="hljs-keyword">return</span> o
+}
+<span class="hljs-keyword">const</span> person1 = createPerson(<span class="hljs-string">'Nicholas'</span>, <span class="hljs-number">29</span>, <span class="hljs-string">'Software Engineer'</span>)
+<span class="hljs-keyword">const</span> person2 = createPerson(<span class="hljs-string">'Greg'</span>, <span class="hljs-number">27</span>, <span class="hljs-string">'Doctor'</span>)
+</code></pre>
+<p>每一次调用上面的 <code>createPerson</code> 工厂函数都可以创建一个对象，这个对象有 <code>name</code> <code>age</code> <code>job</code> 三个属性和一个 <code>sayName</code> 方法，依据传入的参数的不同，返回对象的值也会不同。</p>
+<p>缺点：没有解决这个对象是一个什么类型的对象（没有更精确的对象标识，即没有精确的构造函数）。</p>
+<h2><a class="anchor" aria-hidden="true" id="构造函数模式"></a><a href="#构造函数模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>构造函数模式</h2>
+<p>将工厂改造成构造函数之后，如下</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name
+  <span class="hljs-keyword">this</span>.age = age
+  <span class="hljs-keyword">this</span>.job = job
+  <span class="hljs-keyword">this</span>.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+  }
+}
+<span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Nicholas'</span>, <span class="hljs-number">29</span>, <span class="hljs-string">'Software Engineer'</span>)
+<span class="hljs-keyword">const</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Greg'</span>, <span class="hljs-number">27</span>, <span class="hljs-string">'Doctor'</span>)
+person1.sayName() <span class="hljs-comment">// Nicholas</span>
+person2.sayName() <span class="hljs-comment">// Greg</span>
+</code></pre>
+<p>构造函数和工厂的区别：</p>
+<ol>
+<li>没有显式创建对象；</li>
+<li>直接把属性和方法赋值给 <code>this</code></li>
+<li>没有 <code>return</code></li>
+</ol>
+<p>使用构造函数创建对象将会有以下几个步骤：</p>
+<ol>
+<li>在内存中创建一个新对象</li>
+<li>新对象内部的 <code>[[Prototype]]</code> 指针指向构造函数的 <code>prototype</code> 属性指向的对象；</li>
+<li>将构造函数的上下文 <code>this</code> 指向新创建的对象；</li>
+<li>执行构造函数内部的代码（给新对象添加属性）；</li>
+<li>如果构造函数 <code>return</code> 非 <code>null</code> 的对象，那返回的就是这个对象，否则返回新创建的这个对象。没有 <code>return</code> 时，隐式返回新创建的对象，<code>return null</code> 会返回新创建的对象；</li>
+</ol>
+<p>缺点：每次实例化一个新对象，都会在内部创建一个 <code>sayName</code> 对应的匿名函数，而这个函数对所有实例来讲是没有必要每次都创建的，他们只需要指向同一个函数即可。</p>
+<p>所以上面的代码经过改造之后，变成下面这样：</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">name, age, job</span>) </span>{
+  <span class="hljs-keyword">this</span>.name = name
+  <span class="hljs-keyword">this</span>.age = age
+  <span class="hljs-keyword">this</span>.job = job
+  <span class="hljs-keyword">this</span>.sayName = sayName
+}
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sayName</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+}
+<span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Nicholas'</span>, <span class="hljs-number">29</span>, <span class="hljs-string">'Software Engineer'</span>)
+<span class="hljs-keyword">const</span> person2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Greg'</span>, <span class="hljs-number">27</span>, <span class="hljs-string">'Doctor'</span>)
+person1.sayName() <span class="hljs-comment">// Nicholas</span>
+person2.sayName() <span class="hljs-comment">// Greg</span>
+</code></pre>
+<p>上述的做法虽然解决了重复创建匿名函数的问题，但是又引入了新的问题。</p>
+<p>外面的 <code>sayName</code> 函数仅仅在构造函数中用到，如果对象需要很多个这样的函数，那么就需要在外部定义很多个这种函数，这无疑会导致代码很难组织。</p>
+<h2><a class="anchor" aria-hidden="true" id="原型模式"></a><a href="#原型模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>原型模式</h2>
+<p>函数创建之后都会有一个 <code>prototype</code> 属性，每个使用该构造函数创建的对象都有一个 <code>[[prototype]]</code> 内部属性指向它。</p>
+<p>使用原型的好处在于它所有的属性和方法会在实例间共享，并且这个共享的属性和方法是直接在原型上设置的。</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>{}
+
+Person.prototype.name = <span class="hljs-string">'Nicholas'</span>
+Person.prototype.age = <span class="hljs-number">29</span>
+Person.prototype.job = <span class="hljs-string">'Software Engineer'</span>
+Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+}
+<span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person()
+person1.sayName() <span class="hljs-comment">// "Nicholas"</span>
+<span class="hljs-keyword">const</span> person2 = <span class="hljs-keyword">new</span> Person()
+person2.sayName() <span class="hljs-comment">// "Nicholas"</span>
+<span class="hljs-built_in">console</span>.log(person1.sayName == person2.sayName) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>关于原型的工作原理，可以查看下面三篇文章，看完之后相信你对原型的认识比大多数人都要深刻！</p>
+<ol>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483946&amp;idx=1&amp;sn=acbf08e208b23ddd813c2f3266f375c0&amp;chksm=fd3c3e82ca4bb79458205dde161449b483317ae45eb214b0225af467bc448f398c4f09cd9999&amp;token=479601613&amp;lang=zh_CN#rd">前端面试必备 | 5000 字长文解释千万不能错过的原型操作方法及其模拟实现（原型篇：下）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483942&amp;idx=1&amp;sn=20d88f820800bcb6b6374096cea25a93&amp;chksm=fd3c3e8eca4bb7984588fbfe10609e12df6087bfd32939a1a99ce95682c6233acc42de362139&amp;token=92313189&amp;lang=zh_CN#rd">前端面试必备 | 古怪的原型（鸡生蛋还是蛋生鸡）（原型篇：中）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483938&amp;idx=1&amp;sn=60586911f43a69a905801e5407c2b8e7&amp;chksm=fd3c3e8aca4bb79cd5c7bb64e6c6e5df0c7da3129d7481c8d51e1a9a0590fe4359bbaef575d2&amp;token=212038910&amp;lang=zh_CN#rd">前端面试必备 | 使用原型和构造函数创建对象（原型篇：上）</a></li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="理解原型的层级"></a><a href="#理解原型的层级" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>理解原型的层级</h3>
+<p>对象中属性的查找机制：</p>
+<p>当从对象中访问一个属性的时候，JS 引擎将会按属性名进行查找。JS 引擎会先查找对象自身。如果找到了这个属性，就会停止查找并返回属性对应的值，如果在对象自身没有找到，则会通过原型链到原型对象中继续查找这个属性，如果找到了这个属性，就会停止查找并返回属性对应的值，否则会继续到上层原型链中查找，直到碰到 <code>null</code> 。</p>
+<p>当一个属性添加到实例中时，这个属性会覆盖原型上的同名属性，这个覆盖指的是查找的时候不会到原型中查找同名属性。即使属性的值被赋值为 <code>null</code> 或 <code>undefined</code>，它依然会阻止到原型链上访问。所以如果想要访问，就需要删除这个属性，使用 <code>delete obj.xx</code> 。</p>
+<p>可以使用 <code>hasOwnProperty</code> 判断实例是否拥有某个属性，返回 <code>true</code> 则表示实例本身拥有该属性，否则表示它没有这个属性。当一个属性存在于原型链上时，可以访问到这个属性，但是使用 <code>hasOwnProperty</code> 将返回 <code>false</code>。</p>
+<h3><a class="anchor" aria-hidden="true" id="in-操作符"></a><a href="#in-操作符" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>in</code> 操作符</h3>
+<p><code>in</code> 操作符用在两个地方，一个是用在 <code>for ... in</code> 循环中，另一个是单独使用。单独使用时，返回 <code>true</code> 表示属性可以在对象或者其原型链上找到。</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>{}
+Person.prototype.name = <span class="hljs-string">'Nicholas'</span>
+Person.prototype.age = <span class="hljs-number">29</span>
+Person.prototype.job = <span class="hljs-string">'Software Engineer'</span>
+Person.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+}
+<span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person()
+<span class="hljs-keyword">const</span> person2 = <span class="hljs-keyword">new</span> Person()
+<span class="hljs-built_in">console</span>.log(person1.hasOwnProperty(<span class="hljs-string">'name'</span>)) <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> person1) <span class="hljs-comment">// true</span>
+person1.name = <span class="hljs-string">'Greg'</span>
+<span class="hljs-built_in">console</span>.log(person1.name) <span class="hljs-comment">// "Greg" - from instance</span>
+<span class="hljs-built_in">console</span>.log(person1.hasOwnProperty(<span class="hljs-string">'name'</span>)) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> person1) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(person2.name) <span class="hljs-comment">// "Nicholas" - from prototype</span>
+<span class="hljs-built_in">console</span>.log(person2.hasOwnProperty(<span class="hljs-string">'name'</span>)) <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> person2) <span class="hljs-comment">// true</span>
+<span class="hljs-keyword">delete</span> person1.name
+<span class="hljs-built_in">console</span>.log(person1.name) <span class="hljs-comment">// "Nicholas" - from the prototype</span>
+<span class="hljs-built_in">console</span>.log(person1.hasOwnProperty(<span class="hljs-string">'name'</span>)) <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> person1) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>可以通过组合使用 <code>hasOwnProperty</code> 和 <code>in</code> 来实现判断一个属性是否存在于原型链上：</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">hasPrototypeProperty</span>(<span class="hljs-params">object, name</span>) </span>{
+  <span class="hljs-keyword">return</span> !object.hasOwnProperty(name) &amp;&amp; name <span class="hljs-keyword">in</span> object
+}
+<span class="hljs-keyword">const</span> obj = <span class="hljs-built_in">Object</span>.create({ <span class="hljs-attr">name</span>: <span class="hljs-string">'lxfriday'</span> })
+<span class="hljs-built_in">console</span>.log(obj)
+<span class="hljs-built_in">console</span>.log(hasPrototypeProperty(obj, <span class="hljs-string">'name'</span>))
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="关于对象属性的枚举顺序"></a><a href="#关于对象属性的枚举顺序" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>关于对象属性的枚举顺序</h3>
+<p><code>for ... in</code> <code>Object.keys()</code> <code>Object.getOwnPropertyNames/Symbols()</code> 和 <code>Object.assign()</code> 在处理属性枚举顺序的时候会有很大差别。</p>
+<p><strong><code>for ... in</code> <code>Object.keys()</code> 没有确定的枚举顺序，它们的顺序取决于浏览器实现。</strong></p>
+<p>而 <code>Object.getOwnPropertyNames()</code> <code>Object.getOwnPropertySymbols()</code> 和 <code>Object.assign()</code> 是有确定的枚举顺序的。</p>
+<ol>
+<li>数字键会按照升序先枚举出来；</li>
+<li>字符串和 symbol 键按照插入的顺序枚举出来；</li>
+<li>对象字面量中定义的键会按照代码中的逗号分割顺序枚举出来；</li>
+</ol>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> k2 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'k2'</span>)
+<span class="hljs-keyword">const</span> k1 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'k1'</span>)
+<span class="hljs-keyword">const</span> o = { <span class="hljs-number">1</span>: <span class="hljs-number">1</span>, [k2]: <span class="hljs-string">'sym2'</span>, <span class="hljs-attr">second</span>: <span class="hljs-string">'second'</span>, <span class="hljs-number">0</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">first</span>: <span class="hljs-string">'first'</span> }
+o[k1] = <span class="hljs-string">'sym1'</span>
+o[<span class="hljs-number">3</span>] = <span class="hljs-number">3</span>
+o.third = <span class="hljs-string">'third'</span>
+o[<span class="hljs-number">2</span>] = <span class="hljs-number">2</span>
+<span class="hljs-comment">// [ '0', '1', '2', '3', 'second', 'first', 'third' ]</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getOwnPropertyNames(o))
+<span class="hljs-comment">// [ Symbol(k2), Symbol(k1) ]</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.getOwnPropertySymbols(o))
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="对象的迭代"></a><a href="#对象的迭代" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>对象的迭代</h3>
+<p>ES 2017 引入了两个静态方法来将对象的内容转换为可迭代的格式。</p>
+<p><code>Object.values()</code> 返回对象值构成的数组； <code>Object.entries()</code> 返回一个二维数组，数组中的每个小数组由对象的属性和值构成，类似于 <code>[[key, value], ...]</code>。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> o = { <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span>, <span class="hljs-attr">baz</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">qux</span>: {} }
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.values(o)) <span class="hljs-comment">// ["bar", 1, {}]</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.entries(o)) <span class="hljs-comment">// [["foo", "bar"], ["baz", 1], ["qux", {}]]</span>
+</code></pre>
+<p>在输出的数组中，非字符串的属性会转换成字符串，上述的两个方法对引用类型是采取的浅拷贝。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> o = { <span class="hljs-attr">qux</span>: {} }
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.values(o)[<span class="hljs-number">0</span>] === o.qux) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.entries(o)[<span class="hljs-number">0</span>][<span class="hljs-number">1</span>] === o.qux) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>symbol 键名会被忽略掉。</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> sym = <span class="hljs-built_in">Symbol</span>()
+<span class="hljs-keyword">const</span> o = { [sym]: <span class="hljs-string">'foo'</span> }
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.values(o)) <span class="hljs-comment">// []</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Object</span>.entries(o)) <span class="hljs-comment">// []</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="原型的另一种写法"></a><a href="#原型的另一种写法" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>原型的另一种写法</h2>
+<p>上面的例子中，给原型赋值都是一个个赋，比较繁琐，看看下面的赋值方式：</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>{}
+Person.prototype = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Nicholas'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">29</span>,
+  <span class="hljs-attr">job</span>: <span class="hljs-string">'Software Engineer'</span>,
+  sayName() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+  }
+}
+</code></pre>
+<p>上面的例子中，<code>Person</code> 的原型直接指向一个对象字面量，这种方式最终的结果和前面的单个赋值是一样的，除了原型的 <code>constructor</code> 属性，<code>constructor</code> 不再指向 <code>Person</code> 构造函数。默认情况下，当一个函数创建的时候，会创建一个 <code>prototype</code> 对象，并且这个对象上的 <code>constructor</code> 属性也会自动指向这个函数。所以这种做法覆盖了默认的 <code>prototype</code> 对象，意味着 <code>constructor</code> 属性指向新对象的对应属性。虽然 <code>instanceof</code> 操作符依然会正常工作，但是已经无法用 <code>constructor</code> 来判断实例的类型。看下面的例子：</p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> friend = <span class="hljs-keyword">new</span> Person()
+<span class="hljs-built_in">console</span>.log(friend <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(friend <span class="hljs-keyword">instanceof</span> Person) <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(friend.constructor == Person) <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(friend.constructor == <span class="hljs-built_in">Object</span>) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>如果 <code>constructor</code> 属性很重要，那么你可以手动的给它修复这个问题：</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>{}
+Person.prototype = {
+  <span class="hljs-attr">constructor</span>: Person,
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Nicholas'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">29</span>,
+  <span class="hljs-attr">job</span>: <span class="hljs-string">'Software Engineer'</span>,
+  sayName() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+  }
+}
+</code></pre>
+<p>不过上面的设置方法有一个问题，<code>constructor</code> 的属性描述如下</p>
+<pre><code class="hljs css language-js">{
+  <span class="hljs-attr">value</span>: [<span class="hljs-built_in">Function</span>: Person],
+  <span class="hljs-attr">writable</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<p>我们再看看 <code>Object.prototype.constructor</code>：</p>
+<pre><code class="hljs css language-js">{
+  <span class="hljs-attr">value</span>: [<span class="hljs-built_in">Function</span>: <span class="hljs-built_in">Object</span>],
+  <span class="hljs-attr">writable</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>
+}
+</code></pre>
+<p>我们自己赋值时枚举属性会被默认设置为 <code>true</code>，所以需要通过 <code>Object.defineProperty</code> 来设置不可枚举：</p>
+<pre><code class="hljs css language-js"><span class="hljs-built_in">Object</span>.defineProperty(Person.prototype, <span class="hljs-string">'constructor'</span>, {
+  <span class="hljs-attr">value</span>: Person,
+  <span class="hljs-attr">enumerable</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">configurable</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">writable</span>: <span class="hljs-literal">true</span>
+})
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="原型存在的问题"></a><a href="#原型存在的问题" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>原型存在的问题</h3>
+<p>我们知道原型属性对所有实例是共享的，当原型属性是原始值时没有问题，当原型属性是引用类型时将会出现问题。看看下面的例子：</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>{}
+Person.prototype = {
+  <span class="hljs-attr">constructor</span>: Person,
+  <span class="hljs-attr">name</span>: <span class="hljs-string">'Nicholas'</span>,
+  <span class="hljs-attr">age</span>: <span class="hljs-number">29</span>,
+  <span class="hljs-attr">job</span>: <span class="hljs-string">'Software Engineer'</span>,
+  <span class="hljs-attr">friends</span>: [<span class="hljs-string">'Shelby'</span>, <span class="hljs-string">'Court'</span>],
+  sayName() {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+  }
+}
+<span class="hljs-keyword">const</span> person1 = <span class="hljs-keyword">new</span> Person()
+<span class="hljs-keyword">const</span> person2 = <span class="hljs-keyword">new</span> Person()
+person1.friends.push(<span class="hljs-string">'Van'</span>)
+<span class="hljs-built_in">console</span>.log(person1.friends) <span class="hljs-comment">// "Shelby,Court,Van"</span>
+<span class="hljs-built_in">console</span>.log(person2.friends) <span class="hljs-comment">// "Shelby,Court,Van"</span>
+<span class="hljs-built_in">console</span>.log(person1.friends === person2.friends) <span class="hljs-comment">// true</span>
+</code></pre>
+<p>上述例子中，原型属性 <code>friends</code> 原本是一个包含两个字符串的数组，但是由于 <code>person1</code> 修改了它的内容，导致了原型上的这个属性被更改了，所以 <code>person2</code> 访问的时候也会打印三个字符串。</p>
+<p>由于这个问题，原型模式并不会单独使用，我们经常会结合构造函数和原型来创建对象。</p>
+<h2><a class="anchor" aria-hidden="true" id="总结"></a><a href="#总结" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>总结</h2>
+<p>我们知道，使用构造函数或者原型创建对象都会存在问题，接下来我们组合使用这两者来解决上面的问题。</p>
+<ol>
+<li>构造函数的问题：每个对象都会声明对应的函数，浪费内存；</li>
+<li>原型的问题：更改引用类型的原型属性的值会影响到其他实例访问该属性；</li>
+</ol>
+<p>为了解决上面的问题，<strong>我们可以把所有对象相关的属性定义在构造函数内，把所有共享属性和方法定义在原型上</strong>。</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// 把对象相关的属性定义在构造函数中</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Human</span>(<span class="hljs-params">name, age</span>) </span>{
+  ;(<span class="hljs-keyword">this</span>.name = name), (<span class="hljs-keyword">this</span>.age = age), (<span class="hljs-keyword">this</span>.friends = [<span class="hljs-string">'Jadeja'</span>, <span class="hljs-string">'Vijay'</span>])
+}
+<span class="hljs-comment">// 把共享属性和方法定义在原型上</span>
+Human.prototype.sayName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.name)
+}
+<span class="hljs-comment">// 使用 Human 构造函数创建两个对象</span>
+<span class="hljs-keyword">var</span> person1 = <span class="hljs-keyword">new</span> Human(<span class="hljs-string">'Virat'</span>, <span class="hljs-number">31</span>)
+<span class="hljs-keyword">var</span> person2 = <span class="hljs-keyword">new</span> Human(<span class="hljs-string">'Sachin'</span>, <span class="hljs-number">40</span>)
+
+<span class="hljs-comment">// 检查 person1 和 person2 的 sayName 是否指向了相同的函数</span>
+<span class="hljs-built_in">console</span>.log(person1.sayName === person2.sayName) <span class="hljs-comment">// true</span>
+
+<span class="hljs-comment">// 更改 person1 的 friends 属性</span>
+person1.friends.push(<span class="hljs-string">'Amit'</span>)
+
+<span class="hljs-comment">// 输出: "Jadeja, Vijay, Amit"</span>
+<span class="hljs-built_in">console</span>.log(person1.friends)
+<span class="hljs-comment">// 输出: "Jadeja, Vijay"</span>
+<span class="hljs-built_in">console</span>.log(person2.friends)
+</code></pre>
+<p>我们想要每个实例对象都拥有 <code>name</code> <code>age</code> 和 <code>friends</code> 属性，所以我们使用 <code>this</code> 把这些属性定义在构造函数内。另外，由于 <code>sayName</code> 是定义在原型对象上的，所以这个函数会在所有实例间共享。</p>
+<p>在上面的例子中，<code>person1</code> 对象更改 <code>friends</code> 属性时， <code>person2</code> 对象的 <code>friends</code> 属性没有更改。这是因为 <code>person1</code> 对象更改的是自己的 <code>friends</code> 属性，不会影响到 <code>person2</code> 内的。</p>
+<p><img src="https://qiniu1.lxfriday.xyz/blog/image_20191220134010.png" alt=""></p>
+<h2><a class="anchor" aria-hidden="true" id="最后"></a><a href="#最后" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最后</h2>
+<p>往期精彩：</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483946&amp;idx=1&amp;sn=acbf08e208b23ddd813c2f3266f375c0&amp;chksm=fd3c3e82ca4bb79458205dde161449b483317ae45eb214b0225af467bc448f398c4f09cd9999&amp;token=479601613&amp;lang=zh_CN#rd">前端面试必备 | 5000 字长文解释千万不能错过的原型操作方法及其模拟实现（原型篇：下）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483942&amp;idx=1&amp;sn=20d88f820800bcb6b6374096cea25a93&amp;chksm=fd3c3e8eca4bb7984588fbfe10609e12df6087bfd32939a1a99ce95682c6233acc42de362139&amp;token=870932706&amp;lang=zh_CN#rd">前端面试必备 | 古怪的原型（鸡生蛋还是蛋生鸡）（原型篇：中）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483938&amp;idx=1&amp;sn=60586911f43a69a905801e5407c2b8e7&amp;chksm=fd3c3e8aca4bb79cd5c7bb64e6c6e5df0c7da3129d7481c8d51e1a9a0590fe4359bbaef575d2&amp;token=92313189&amp;lang=zh_CN#rd">前端面试必备 | 使用原型和构造函数创建对象（原型篇：上）</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483933&amp;idx=1&amp;sn=8aa346f4ee64f6da46a38413710b8267&amp;chksm=fd3c3eb5ca4bb7a3bdd94b6005720b774523e601b626eb23cb4914169677a181fb9574cfa186&amp;token=212038910&amp;lang=zh_CN#rd">前端面试必会 | 一文读懂 JavaScript 中的 this 关键字</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483928&amp;idx=1&amp;sn=8a9900ad8fbf5a8861166e721840806c&amp;chksm=fd3c3eb0ca4bb7a6b1e92ae4e4e4bd71f8e7c837ece1b29b0e89ed09bdd278f46a25d6aa4341&amp;token=1211815934&amp;lang=zh_CN#rd">前端面试必会 | 一文读懂现代 JavaScript 中的变量提升 - let、const 和 var</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483924&amp;idx=1&amp;sn=fa69401f5b562dd81dcf1c4162852908&amp;chksm=fd3c3ebcca4bb7aafca6548e862af76c49daf5282b7c5b9d2b4c46400782a78fe8bcf49a377a&amp;token=1491323947&amp;lang=zh_CN#rd">前端面试必会 | 一文读懂 JavaScript 中的闭包</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483918&amp;idx=1&amp;sn=49cb36e7fcab1b99662c94a4e2bca8ab&amp;chksm=fd3c3ea6ca4bb7b072178251a0984aca870b580a7b48376848a755d4635f4a68b9b7f1ac263e&amp;token=558341442&amp;lang=zh_CN#rd">前端面试必会 | 一文读懂 JavaScript 中的作用域和作用域链</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483911&amp;idx=1&amp;sn=2922e6dc26a8aed4ec733c5ec0a24696&amp;chksm=fd3c3eafca4bb7b9cf15b43f3abedc270f6e18a0942364448a42862766c1bde7c42eb0cc61b9&amp;token=1392282839&amp;lang=zh_CN#rd">前端面试必会 | 一文读懂 JavaScript 中的执行上下文</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483904&amp;idx=1&amp;sn=856723984d94268ad80acc1b187c2de3&amp;chksm=fd3c3ea8ca4bb7be622635bb9ab75141174a1c9acee2c965a9e9abbed9cbb698a1697aae0bcf&amp;token=1392282839&amp;lang=zh_CN#rd">IntersectionObserver 和懒加载</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483899&amp;idx=1&amp;sn=7c30a7f988b849dcf78c53d31047b53c&amp;chksm=fd3c3d53ca4bb445fb0f2daef575e692ad02de4b15d605577d05261ba626283cb6ca2b6acdcd&amp;token=1392282839&amp;lang=zh_CN#rd">初探浏览器渲染原理</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483894&amp;idx=1&amp;sn=7464988cafe35295f7b078c257b3156e&amp;chksm=fd3c3d5eca4bb4481fd41a719a8b2f05ac2882a73a8c71fd2cfe294f9b7495d76133de3a1c25&amp;token=1392282839&amp;lang=zh_CN#rd">CSS 盒模型、布局和包含块</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzU3MzcxMzg2Mw==&amp;mid=2247483890&amp;idx=1&amp;sn=3542cdb5682055766ca5d13cf87a231f&amp;chksm=fd3c3d5aca4bb44ca661d2fe59734d789b6d1f1750041113edce94dc544df0ce321809b0a70c&amp;token=1392282839&amp;lang=zh_CN#rd">详细解读 CSS 选择器优先级</a></li>
+</ul>
+<p>关注公众号可以看更多哦。</p>
+<p>感谢阅读，欢迎关注我的公众号 <strong>云影 sky</strong>，带你解读前端技术，掌握最本质的技能。关注公众号可以拉你进讨论群，有任何问题都会回复。</p>
+<p><img src="https://qiniu1.lxfriday.xyz/blog/image_20191209232941.png" alt="公众号"></p>
+<p><img src="https://qiniu1.lxfriday.xyz/blog/image_20200101220142.png" alt="交流群"></p>
+<p>您的在看和分享将是我继续前进的动力~</p>
+</span></div></article></div><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2017/10/24/new-version-1.0.0">New Version 1.0.0</a></h1><p class="post-meta">October 24, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/ericnakagawa" target="_blank" rel="noreferrer noopener">Eric Nakagawa</a></p><div class="authorPhoto"><a href="http://twitter.com/ericnakagawa" target="_blank" rel="noreferrer noopener"><img src="https://graph.facebook.com/661277173/picture/?height=200&amp;width=200" alt="Eric Nakagawa"/></a></div></div></header><article class="post-content"><div><span><p>This blog post will test file name parsing issues when periods are present.</p>
+</span></div></article></div><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2017/09/26/adding-rss">Adding RSS Support</a></h1><p class="post-meta">September 26, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/ericnakagawa" target="_blank" rel="noreferrer noopener">Eric Nakagawa</a></p><div class="authorPhoto"><a href="http://twitter.com/ericnakagawa" target="_blank" rel="noreferrer noopener"><img src="https://graph.facebook.com/661277173/picture/?height=200&amp;width=200" alt="Eric Nakagawa"/></a></div></div></header><article class="post-content"><div><span><p>This is a test post.</p>
+<p>A whole bunch of other information.</p>
+</span></div></article></div><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2017/09/25/testing-rss">Adding RSS Support - RSS Truncation Test</a></h1><p class="post-meta">September 25, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/ericnakagawa" target="_blank" rel="noreferrer noopener">Eric Nakagawa</a></p><div class="authorPhoto"><a href="http://twitter.com/ericnakagawa" target="_blank" rel="noreferrer noopener"><img src="https://graph.facebook.com/661277173/picture/?height=200&amp;width=200" alt="Eric Nakagawa"/></a></div></div></header><article class="post-content"><div><span><p>1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890</p>
+<p>This should be truncated.</p>
+</span></div><div class="read-more"><a class="button" href="/blog/2017/09/25/testing-rss">Read More</a></div></article></div><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2017/04/10/blog-post-two">New Blog Post</a></h1><p class="post-meta">April 10, 2017</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/" target="_blank" rel="noreferrer noopener">Blog Author</a></p><div class="authorPhoto"><a href="http://twitter.com/" target="_blank" rel="noreferrer noopener"><img src="https://graph.facebook.com/100002976521003/picture/?height=200&amp;width=200" alt="Blog Author"/></a></div></div></header><article class="post-content"><div><span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum massa eget nulla aliquet sagittis. Proin odio tortor, vulputate ut odio in, ultrices ultricies augue. Cras ornare ultrices lorem malesuada iaculis. Etiam sit amet libero tempor, pulvinar mauris sed, sollicitudin sapien.</p>
+</span></div><div class="read-more"><a class="button" href="/blog/2017/04/10/blog-post-two">Read More</a></div></article></div><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2016/03/11/blog-post">Blog Title</a></h1><p class="post-meta">March 11, 2016</p><div class="authorBlock"><p class="post-authorName"><a href="http://twitter.com/" target="_blank" rel="noreferrer noopener">Blog Author</a></p><div class="authorPhoto"><a href="http://twitter.com/" target="_blank" rel="noreferrer noopener"><img src="https://graph.facebook.com/100002976521003/picture/?height=200&amp;width=200" alt="Blog Author"/></a></div></div></header><article class="post-content"><div><span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque elementum dignissim ultricies. Fusce rhoncus ipsum tempor eros aliquam consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum massa eget nulla aliquet sagittis. Proin odio tortor, vulputate ut odio in, ultrices ultricies augue. Cras ornare ultrices lorem malesuada iaculis. Etiam sit amet libero tempor, pulvinar mauris sed, sollicitudin sapien.</p>
+</span></div><div class="read-more"><a class="button" href="/blog/2016/03/11/blog-post">Read More</a></div></article></div><div class="docs-prevnext"></div></div></div></div></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/docusaurus.svg" alt="JavaScript 高级程序设计第四版" width="66" height="58"/></a><div><h5>Docs</h5><a href="/docs/en/doc1.html">Getting Started (or other categories)</a><a href="/docs/en/doc2.html">Guides (or other categories)</a><a href="/docs/en/doc3.html">API Reference (or other categories)</a></div><div><h5>Community</h5><a href="/en/users.html">User Showcase</a><a href="http://stackoverflow.com/questions/tagged/" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://discordapp.com/">Project Chat</a><a href="https://twitter.com/" target="_blank" rel="noreferrer noopener">Twitter</a></div><div><h5>More</h5><a href="/blog">Blog</a><a href="https://github.com/">GitHub</a><a class="github-button" href="https://github.com/lxfriday/Note-Professional-JavaScript-for-Web-Developers-v4" data-icon="octicon-star" data-count-href="/facebook/docusaurus/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><a href="https://opensource.facebook.com/" target="_blank" rel="noreferrer noopener" class="fbOpenSource"><img src="/img/oss_logo.png" alt="Facebook Open Source" width="170" height="45"/></a><section class="copyright"></section></footer></div></body></html>
